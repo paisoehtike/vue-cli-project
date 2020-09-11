@@ -2,23 +2,23 @@
   <form ref="form" class="list-body">
       <div>
         <label for="carid">Car ID</label>
-        <input id="carid" type="text" v-model="carid">
+        <input id="carid" type="text" v-model="carid" required>
       </div>
       <div>
         <label for="make">Manufacturer</label>
-        <input id="make" type="text" v-model="make">
+        <input id="make" type="text" v-model="make" required>
       </div>
       <div>
         <label for="model">Model</label>
-        <input id="model" type="text" v-model="model">
+        <input id="model" type="text" v-model="model" required>
       </div>
       <div>
         <label for="color">Color</label>
-        <input id="color" type="text" v-model="color">
+        <input id="color" type="text" v-model="color" required>
       </div>
       <div>
         <label for="owner">Owner Name</label>
-        <input id="owner" type="text" v-model="owner">
+        <input id="owner" type="text" v-model="owner" required>
       </div>
   </form>
   <button @click="submit">Submit</button>

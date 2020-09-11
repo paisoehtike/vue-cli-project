@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Certificates</router-link> |
-      <router-link to="/about">Create New Certificate</router-link>
+      <router-link to="/">Cars</router-link> |
+      <router-link to="/about">Create New Cars</router-link>
     </div>
     <router-view/>
   </div>

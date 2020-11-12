@@ -1,17 +1,21 @@
 <template>
     <div v-if="data">
-        <p><b>Car ID</b> - {{ $route.params.key }}</p>
-        <p><b>Owner</b> - {{ data.owner }}</p>
-        <p><b>Model</b> - {{ data.model }}</p>
-        <p><b>Manufacturer</b> - {{ data.make }}</p>
-        <p><b>Color</b> - {{ data.color }}</p>
+        <p><b>Card ID</b> - {{ $route.params.key }}</p>
+        <p><b>Application Type</b> - {{ data.application_type }}</p>
+        <p><b>Applicant ID</b> - {{ data.applicant_id }}</p>
+        <p><b>Member Date</b> - {{ data.member_date }}</p>
+        <p><b>End Date</b> - {{ data.end_date }}</p>
+        <p><b>Remark</b> - {{ data.remark }}</p>
+        <p><b>Type</b> - {{ data.type }}</p>
     </div>
 </template>
 
 <script>
 const axios = require('axios').default;
+import apiConfigMixins from '../mixins/apiConfigMixins'
 
 export default {
+    mixins: [apiConfigMixins],
     data() {
         return {
             data: null,
@@ -19,7 +23,7 @@ export default {
     },
     methods: {
         getDetail() {
-            axios.get('http://13.76.94.34:8080/api/query/' + this.$route.params.key)
+            axios.get(`${this.detailUrl}${this.$route.params.key}`)
             .then( res => this.handleRes(res)).catch( res => console.log(res))
         },
         handleRes(res) {
@@ -28,6 +32,7 @@ export default {
     },
     created() {
         this.getDetail()
+        console.log(`${this.detailUrl}${this.$route.params.key}`)
     }
 }
 </script>
